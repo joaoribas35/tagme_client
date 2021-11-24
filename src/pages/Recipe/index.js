@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import Ingredients from "./Ingredients";
 import Directions from "./Directions";
 import LiveModal from "../../components/Modal";
+import { Button } from "../../components/Button";
 import { HeaderBottom, HeaderTop, Header, Footer } from "./styles";
 
 // mock data
@@ -44,9 +46,13 @@ const Recipe = () => {
         <div onClick={verifyIngredients}>
           {startPrep ? (
             isAllSteps ? (
-              <LiveModal label="Finalizar">Acabou!</LiveModal>
+              <LiveModal label="Finalizar" variant="success">
+                Acabou!
+              </LiveModal>
             ) : (
-              <button disabled>Finalizar</button>
+              <Button success disabled>
+                Finalizar
+              </Button>
             )
           ) : (
             <LiveModal label="Iniciar preparação">

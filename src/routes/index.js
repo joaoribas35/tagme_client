@@ -3,7 +3,7 @@ import Login from "../pages/Login";
 import Recipes from "../pages/Recipes";
 import Recipe from "../pages/Recipe";
 
-import PrivateRoute from "./PrivateRoute";
+// import PrivateRoute from "./PrivateRoute";
 
 const Routes = () => {
   return (

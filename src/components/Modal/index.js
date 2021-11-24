@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import { Button } from "../Button";
 
-const LiveModal = ({ children, label, disabled }) => {
+const LiveModal = ({ children, label, disabled, variant }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -9,9 +10,15 @@ const LiveModal = ({ children, label, disabled }) => {
 
   return (
     <>
-      <button variant="primary" onClick={handleShow} disabled={disabled}>
-        {label}
-      </button>
+      {variant ? (
+        <Button success onClick={handleShow} disabled={disabled}>
+          {label}
+        </Button>
+      ) : (
+        <Button onClick={handleShow} disabled={disabled}>
+          {label}
+        </Button>
+      )}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>

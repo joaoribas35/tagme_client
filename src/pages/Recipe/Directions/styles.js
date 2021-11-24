@@ -23,6 +23,7 @@ export const Direction = styled.div`
   div {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     h1 {
       font-size: 1rem;
@@ -32,7 +33,6 @@ export const Direction = styled.div`
 
     p {
       font-size: 1rem;
-      margin: 0;
     }
   }
 `;

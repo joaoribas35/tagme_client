@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { Container, Ingredient } from "./styles";
 import Checkbox from "../../../components/Checkbox";
