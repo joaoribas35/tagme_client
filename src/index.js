@@ -3,9 +3,17 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import "react-toastify/dist/ReactToastify.css";
+
+import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+      <ToastContainer position="bottom-center" theme="colored" />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

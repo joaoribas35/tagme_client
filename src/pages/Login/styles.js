@@ -8,11 +8,8 @@ export const Container = styled.div`
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-image: url(${bg_login});
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url(${bg_login}) no-repeat center center fixed;
   background-color: var(--color-bg-page);
-  background-size: cover;
 
   @media screen and (min-width: 1024px) {
     background-size: initial;

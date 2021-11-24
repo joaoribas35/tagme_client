@@ -4,6 +4,9 @@ export const GlobalStyle = createGlobalStyle`
   html {
     --color-bg-page: #000;
     --color-bg-primary: #f67900;
+    --color-bg-topbar: #363636;
+    --color-font: #313131;
+    --height-topbar: 70px
   }
 
   body {
