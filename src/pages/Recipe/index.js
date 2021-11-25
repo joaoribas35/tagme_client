@@ -2,9 +2,17 @@
 import { useState } from "react";
 import Ingredients from "./Ingredients";
 import Directions from "./Directions";
-import LiveModal from "../../components/Modal";
+import StartModal from "./Modals/StartModal";
+import FinishModal from "./Modals/FinishModal";
 import { Button } from "../../components/Button";
-import { HeaderBottom, HeaderTop, Header, Footer } from "./styles";
+import {
+  HeaderBottom,
+  HeaderTop,
+  Header,
+  Footer,
+  Bar,
+  BarSuccess,
+} from "./styles";
 
 // mock data
 import mock from "../../mock.json";
@@ -14,6 +22,7 @@ const Recipe = () => {
   const [startPrep, setStartPrep] = useState(false);
   const [isAllIngredients, setIsAllIngredients] = useState(false);
   const [isAllSteps, setIsAllSteps] = useState(false);
+  const [progress, setProgress] = useState("0%");
 
   const verifyIngredients = () => {
     if (isAllIngredients) {
@@ -40,24 +49,28 @@ const Recipe = () => {
       <Directions
         directions={recipe.directions}
         setIsAllSteps={setIsAllSteps}
+        setProgress={setProgress}
       />
       <Footer>
-        <div>STATUS</div>
+        <div>
+          Status <strong>{progress}</strong> pronto e 0 minuto(s) utilizado(s)
+          {progress === "100%" ? (
+            <BarSuccess now={progress} />
+          ) : (
+            <Bar now={progress} />
+          )}
+        </div>
         <div onClick={verifyIngredients}>
           {startPrep ? (
             isAllSteps ? (
-              <LiveModal label="Finalizar" variant="success">
-                Acabou!
-              </LiveModal>
+              <FinishModal />
             ) : (
               <Button success disabled>
                 Finalizar
               </Button>
             )
           ) : (
-            <LiveModal label="Iniciar preparação">
-              Precisa de todos os ingredientes
-            </LiveModal>
+            <StartModal />
           )}
         </div>
       </Footer>

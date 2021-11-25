@@ -15,8 +15,17 @@ export const Button = styled.button`
   }
 `;
 
-export const ButtonError = styled(Button)`
-  background: ${(props) => (props.secondary ? "white" : "var(--color-error)")};
-  color: ${(props) => (props.secondary ? "var(--color-error)" : "white")};
-  border: 2px solid var(--color-error);
+export const ModalButton = styled.button`
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 180px;
+  height: 60px;
+  border: 3px solid black;
+
+  &:hover {
+    background: lightgray;
+  }
 `;
