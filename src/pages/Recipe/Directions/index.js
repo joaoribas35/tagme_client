@@ -2,24 +2,17 @@
 import { useState, useEffect } from "react";
 import Checkbox from "../../../components/Checkbox";
 import { Container, Direction } from "./styles";
+import { calculateProgress } from "../../../services/helpers";
 
 const Directions = ({ directions, setIsAllSteps, setProgress }) => {
   const totalSteps = directions.length;
   const [counter, setCounter] = useState(0);
 
-  const calculateProgress = () => {
-    let string = "";
-    let num = 0;
-    num = Math.round((counter / totalSteps) * 100);
-    string = `${num}%`;
-    setProgress(string);
-  };
-
   useEffect(() => {
     if (counter === totalSteps) {
       setIsAllSteps(true);
     }
-    calculateProgress();
+    calculateProgress(counter, totalSteps, setProgress);
   }, [counter]);
 
   return (

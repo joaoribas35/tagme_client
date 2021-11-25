@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button, ModalButton } from "../../../components/Button";
 import { Content } from "./styles";
 import { useTimer } from "../../../providers/Timer";
+import { showTotalTime } from "../../../services/helpers";
 
 const FinishModal = () => {
   const [show, setShow] = useState(false);
@@ -28,9 +29,7 @@ const FinishModal = () => {
         <Modal.Body>
           <Content>
             <h1>OBRIGADO</h1>
-            <p>
-              Prato finalizado com sucesso em 23 minutos e 19 segundos! {time}
-            </p>
+            <p>Prato finalizado com sucesso em {showTotalTime(time)}!</p>
             <ModalButton onClick={handleClose}>OK</ModalButton>
           </Content>
         </Modal.Body>

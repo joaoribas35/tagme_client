@@ -6,6 +6,7 @@ import StartModal from "./Modals/StartModal";
 import FinishModal from "./Modals/FinishModal";
 import { Button } from "../../components/Button";
 import { useTimer } from "../../providers/Timer";
+import { showMinutes } from "../../services/helpers";
 import {
   HeaderBottom,
   HeaderTop,
@@ -25,7 +26,6 @@ const Recipe = () => {
   const [isAllSteps, setIsAllSteps] = useState(false);
   const [progress, setProgress] = useState("0%");
   const { time, setStartTimer } = useTimer();
-  console.log("recipe time", time);
 
   const verifyIngredients = () => {
     if (isAllIngredients) {
@@ -58,8 +58,8 @@ const Recipe = () => {
       />
       <Footer>
         <div>
-          Status <strong>{progress}</strong> pronto e {time} minuto(s)
-          utilizado(s)
+          Status <strong>{progress}</strong> pronto e {showMinutes(time)}{" "}
+          minuto(s) utilizado(s)
           {progress === "100%" ? (
             <BarSuccess now={progress} />
           ) : (
