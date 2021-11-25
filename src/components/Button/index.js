@@ -24,8 +24,4 @@ export const ModalButton = styled.button`
   width: 180px;
   height: 60px;
   border: 3px solid black;
-
-  &:hover {
-    background: lightgray;
-  }
 `;

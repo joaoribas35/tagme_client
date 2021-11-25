@@ -2,19 +2,9 @@
 import { useState } from "react";
 import Ingredients from "./Ingredients";
 import Directions from "./Directions";
-import StartModal from "./Modals/StartModal";
-import FinishModal from "./Modals/FinishModal";
-import { Button } from "../../components/Button";
+import Footer from "./Footer";
+import Header from "./Header";
 import { useTimer } from "../../providers/Timer";
-import { showMinutes } from "../../services/helpers";
-import {
-  HeaderBottom,
-  HeaderTop,
-  Header,
-  Footer,
-  Bar,
-  BarSuccess,
-} from "./styles";
 
 // mock data
 import mock from "../../mock.json";
@@ -37,16 +27,11 @@ const Recipe = () => {
 
   return (
     <>
-      <Header>
-        <HeaderTop>
-          <div>Voltar</div>
-          <div>Tempo de preparo</div>
-        </HeaderTop>
-        <HeaderBottom>
-          <h1>{recipe.title}</h1>
-          <p>{recipe.description}</p>
-        </HeaderBottom>
-      </Header>
+      <Header
+        prepTime={recipe.prepTime}
+        title={recipe.title}
+        description={recipe.description}
+      />
       <Ingredients
         ingredients={recipe.ingredients}
         setIsAllIngredients={setIsAllIngredients}
@@ -56,30 +41,13 @@ const Recipe = () => {
         setIsAllSteps={setIsAllSteps}
         setProgress={setProgress}
       />
-      <Footer>
-        <div>
-          Status <strong>{progress}</strong> pronto e {showMinutes(time)}{" "}
-          minuto(s) utilizado(s)
-          {progress === "100%" ? (
-            <BarSuccess now={progress} />
-          ) : (
-            <Bar now={progress} />
-          )}
-        </div>
-        <div onClick={verifyIngredients}>
-          {startPrep ? (
-            isAllSteps ? (
-              <FinishModal />
-            ) : (
-              <Button success disabled>
-                Finalizar
-              </Button>
-            )
-          ) : (
-            <StartModal />
-          )}
-        </div>
-      </Footer>
+      <Footer
+        progress={progress}
+        time={time}
+        verifyIngredients={verifyIngredients}
+        startPrep={startPrep}
+        isAllSteps={isAllSteps}
+      />
     </>
   );
 };

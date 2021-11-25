@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', Open-Sans,  Sans-Serif;
   }
 
-  p {
+  p, h1 {
     margin: 0;
     padding: 0;
   }
