@@ -4,10 +4,12 @@ import { Button, ModalButton } from "../../../components/Button";
 import { Content } from "./styles";
 import { useTimer } from "../../../providers/Timer";
 import { showTotalTime } from "../../../services/helpers";
+import { useHistory } from "react-router-dom";
 
 const FinishModal = () => {
   const [show, setShow] = useState(false);
   const { time, setStartTimer } = useTimer();
+  const history = useHistory();
 
   const handleShow = () => {
     setShow(true);
@@ -16,6 +18,7 @@ const FinishModal = () => {
 
   const handleClose = () => {
     setShow(false);
+    history.push("/receitas");
   };
 
   return (

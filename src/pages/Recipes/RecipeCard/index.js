@@ -11,7 +11,7 @@ const RecipeCard = ({ recipe }) => {
           <p>{recipe.description}</p>
         </div>
       </Description>
-      <ShowRecipe to="/">Ver receita</ShowRecipe>
+      <ShowRecipe to={`/receitas/${recipe._id}`}>Ver receita</ShowRecipe>
     </Container>
   );
 };
