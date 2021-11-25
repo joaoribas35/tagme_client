@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-font-recipe: #f8f8f8;
     --color-bg-ingredients: #fafafa;
     --color-bg-green: #63d900;
-    --height-topbar: 70px;
+    --height-topbar: 90px;
   }
 
   body {
