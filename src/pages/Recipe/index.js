@@ -5,6 +5,7 @@ import Directions from "./Directions";
 import StartModal from "./Modals/StartModal";
 import FinishModal from "./Modals/FinishModal";
 import { Button } from "../../components/Button";
+import { useTimer } from "../../providers/Timer";
 import {
   HeaderBottom,
   HeaderTop,
@@ -23,10 +24,14 @@ const Recipe = () => {
   const [isAllIngredients, setIsAllIngredients] = useState(false);
   const [isAllSteps, setIsAllSteps] = useState(false);
   const [progress, setProgress] = useState("0%");
+  const { time, setStartTimer } = useTimer();
+  console.log("recipe time", time);
 
   const verifyIngredients = () => {
     if (isAllIngredients) {
       setStartPrep(true);
+      setIsAllIngredients(false);
+      setStartTimer(true);
     }
   };
 
@@ -53,7 +58,8 @@ const Recipe = () => {
       />
       <Footer>
         <div>
-          Status <strong>{progress}</strong> pronto e 0 minuto(s) utilizado(s)
+          Status <strong>{progress}</strong> pronto e {time} minuto(s)
+          utilizado(s)
           {progress === "100%" ? (
             <BarSuccess now={progress} />
           ) : (

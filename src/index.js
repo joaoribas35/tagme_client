@@ -8,11 +8,15 @@ import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
+import Providers from "./providers";
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
-      <ToastContainer position="bottom-center" theme="colored" />
+      <Providers>
+        <App />
+        <ToastContainer position="bottom-center" theme="colored" />
+      </Providers>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

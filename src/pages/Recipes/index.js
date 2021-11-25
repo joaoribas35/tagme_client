@@ -1,5 +1,4 @@
 import React from "react";
-import Chronometer from "../../components/Chronometer";
 import RecipeCard from "./RecipeCard";
 import { CardWrapper, Container, Title } from "./styles";
 import Topbar from "./Topbar";
@@ -13,7 +12,6 @@ const Recipes = () => {
         <CardWrapper>
           <RecipeCard />
         </CardWrapper>
-        <Chronometer />
       </Container>
     </>
   );
