@@ -1,7 +1,12 @@
 import { TimerProvider } from "./Timer";
+import { RecipesProvider } from "./Recipes";
 
 const Providers = ({ children }) => {
-  return <TimerProvider>{children}</TimerProvider>;
+  return (
+    <TimerProvider>
+      <RecipesProvider>{children}</RecipesProvider>
+    </TimerProvider>
+  );
 };
 
 export default Providers;

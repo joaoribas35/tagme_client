@@ -10,10 +10,6 @@ export const Container = styled.div`
   background-color: var(--color-bg-topbar);
   align-items: center;
   padding: 0 15px;
-
-  img {
-    height: 50px;
-  }
 `;
 
 export const RightSide = styled.div`
@@ -21,7 +17,7 @@ export const RightSide = styled.div`
   justify-content: flex-end;
 
   input {
-    width: 380px;
+    width: 320px;
     margin-right: 15px;
   }
 `;
@@ -33,7 +29,7 @@ export const Icons = styled(Link)`
   color: #fff;
   cursor: pointer;
   margin: 0 10px;
-  width: 45px;
+  width: 40px;
   text-decoration: none;
 
   svg {

@@ -7,6 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h1`
@@ -21,5 +22,5 @@ export const Title = styled.h1`
 
 export const CardWrapper = styled.div`
   width: 95%;
-  margin: 30px 15px;
+  margin: 0px 15px;
 `;

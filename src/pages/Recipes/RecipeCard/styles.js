@@ -1,11 +1,13 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 30px;
+  padding: 30px 0;
   border-bottom: 1px solid lightgray;
+  margin: 0 auto;
 `;
 
 export const Description = styled.div`
@@ -20,22 +22,22 @@ export const Description = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    width: 260px;
+    max-width: 450px;
     justify-content: center;
 
     h1 {
-      font-size: 1rem;
+      font-size: 1.25rem;
       font-weight: bold;
       margin-bottom: 20px;
     }
 
     p {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
     }
   }
 `;
 
-export const ShowRecipe = styled.div`
+export const ShowRecipe = styled(Link)`
   width: 85px;
   height: 85px;
   border-radius: 50%;
@@ -44,4 +46,11 @@ export const ShowRecipe = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+
+  &:hover {
+    color: #fff;
+  }
 `;
