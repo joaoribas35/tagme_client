@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import arroz_marisco from "../../../assets/img/prato-arroz-grande.jpg";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background: url(${arroz_marisco}) center center/cover no-repeat;
+  background: url(${(props) => props.image}) center center/cover no-repeat;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
   height: 589px;
   justify-content: space-between;

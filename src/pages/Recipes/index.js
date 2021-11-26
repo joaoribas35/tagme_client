@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import Topbar from "../../components/Topbar";
 import RecipeCard from "./RecipeCard";

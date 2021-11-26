@@ -7,3 +7,4 @@ const api = axios.create({
 });
 
 export const getRecipes = async () => await api.get(`/recipes`);
+export const getRecipe = async (id) => await api.get(`/recipes/${id}`);

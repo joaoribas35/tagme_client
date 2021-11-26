@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Ingredients from "./Ingredients";
@@ -6,30 +6,35 @@ import Directions from "./Directions";
 import Footer from "./Footer";
 import Header from "./Header";
 import { useTimer } from "../../providers/Timer";
-import { useRecipes } from "../../providers/Recipes";
-
-// mock data
-import mock from "../../mock.json";
+import { getRecipe } from "../../services/server";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const Recipe = () => {
   const { id } = useParams();
-  const { recipes } = useRecipes();
-  const [recipe, setRecipe] = useState(mock[0]);
+  const [recipe, setRecipe] = useState("");
   const [startPrep, setStartPrep] = useState(false);
   const [isAllIngredients, setIsAllIngredients] = useState(false);
   const [isAllSteps, setIsAllSteps] = useState(false);
   const [progress, setProgress] = useState("0%");
   const { time, setStartTimer } = useTimer();
+  const [loading, setLoading] = useState(false);
 
-  const getRecipe = async () => {
-    const filtered = await recipes.filter((recipe) => recipe._id === id);
-    setRecipe(filtered);
+  const listRecipe = async () => {
+    setLoading(true);
+
+    try {
+      const response = await getRecipe(id);
+      setRecipe(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
   };
 
-  // useEffect(() => {
-  //   getRecipe();
-  //   console.log("recipe", recipe);
-  // }, []);
+  useEffect(() => {
+    listRecipe();
+  }, []);
 
   const verifyIngredients = () => {
     if (isAllIngredients) {
@@ -41,27 +46,34 @@ const Recipe = () => {
 
   return (
     <>
-      <Header
-        prepTime={recipe.prepTime}
-        title={recipe.title}
-        description={recipe.description}
-      />
-      <Ingredients
-        ingredients={recipe.ingredients}
-        setIsAllIngredients={setIsAllIngredients}
-      />
-      <Directions
-        directions={recipe.directions}
-        setIsAllSteps={setIsAllSteps}
-        setProgress={setProgress}
-      />
-      <Footer
-        progress={progress}
-        time={time}
-        verifyIngredients={verifyIngredients}
-        startPrep={startPrep}
-        isAllSteps={isAllSteps}
-      />
+      {recipe && (
+        <>
+          <Header
+            prepTime={recipe.prepTime}
+            title={recipe.title}
+            description={recipe.description}
+            image={recipe.image}
+          />
+          <Ingredients
+            ingredients={recipe.ingredients}
+            setIsAllIngredients={setIsAllIngredients}
+          />
+          <Directions
+            directions={recipe.directions}
+            setIsAllSteps={setIsAllSteps}
+            setProgress={setProgress}
+          />
+          <Footer
+            progress={progress}
+            time={time}
+            verifyIngredients={verifyIngredients}
+            startPrep={startPrep}
+            isAllSteps={isAllSteps}
+          />
+          {loading && <LoadingSpinner />}
+        </>
+      )}
+      {loading && <LoadingSpinner />}
     </>
   );
 };

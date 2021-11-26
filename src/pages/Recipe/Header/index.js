@@ -1,4 +1,5 @@
 import React from "react";
+import { baseURL } from "../../../services/server";
 import arrow from "../../../assets/img/icon-back.png";
 import clock from "../../../assets/img/icon-time.png";
 import {
@@ -9,9 +10,9 @@ import {
   PreparationTime,
 } from "./styles";
 
-const Header = ({ title, description, prepTime }) => {
+const Header = ({ title, description, prepTime, image }) => {
   return (
-    <Container>
+    <Container image={`${baseURL}/${image}`}>
       <HeaderTop>
         <Back to="/receitas">
           <img src={arrow} alt="voltar" /> <p>Voltar</p>
