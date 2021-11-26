@@ -11,3 +11,5 @@ const App = () => {
 };
 
 export default App;
+
+// https://codesandbox.io/s/broken-shadow-c5wxp?file=/src/search-bar.tsx

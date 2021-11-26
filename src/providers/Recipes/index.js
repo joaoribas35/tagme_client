@@ -1,14 +1,9 @@
-import { createContext, useState, useContext, useEffect } from "react";
-import mock from "../../mock.json";
+import { createContext, useState, useContext } from "react";
 
 export const RecipesContext = createContext();
 
 export const RecipesProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    setRecipes(mock);
-  }, [recipes]);
 
   return (
     <RecipesContext.Provider value={{ recipes, setRecipes }}>

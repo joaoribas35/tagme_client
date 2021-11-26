@@ -1,11 +1,11 @@
 import { Container, Description, ShowRecipe } from "./styles";
-import arroz_marisco_pq from "../../../assets/img/prato-arroz-marisco-peq.jpg";
+import { baseURL } from "../../../services/server";
 
 const RecipeCard = ({ recipe }) => {
   return (
     <Container>
       <Description>
-        <img src={arroz_marisco_pq} alt="Arroz de Mariscos" />
+        <img src={`${baseURL}/${recipe.thumbnail}`} alt={recipe.title} />
         <div>
           <h1>{recipe.title}</h1>
           <p>{recipe.description}</p>
