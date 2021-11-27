@@ -6,5 +6,9 @@ const api = axios.create({
   baseURL,
 });
 
+export const loginUser = async (data) => {
+  return api.post("/login", data);
+};
+
 export const getRecipes = async () => await api.get(`/recipes`);
 export const getRecipe = async (id) => await api.get(`/recipes/${id}`);

@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import Topbar from "../../components/Topbar";
 import RecipeCard from "./RecipeCard";
 import LoadingSpinner from "../../components/LoadingSpinner";
-import { useRecipes } from "../../providers/Recipes";
 import { getRecipes } from "../../services/server";
+import { searchRecipes } from "../../services/helpers";
 import { CardWrapper, Container, Title } from "./styles";
 
 const Recipes = () => {
   const [loading, setLoading] = useState(false);
-  const { recipes, setRecipes } = useRecipes();
+  const [search, setSearch] = useState("");
+  const [recipes, setRecipes] = useState([]);
 
   const listRecipes = async () => {
     setLoading(true);
@@ -30,13 +31,15 @@ const Recipes = () => {
 
   return (
     <>
-      <Topbar />
+      <Topbar setSearch={setSearch} />
       <Container>
         <Title>Receitas</Title>
         <CardWrapper>
-          {recipes.map((recipe, i) => (
-            <RecipeCard key={i} recipe={recipe} />
-          ))}
+          {recipes
+            .filter((recipe) => searchRecipes(recipe, search))
+            .map((recipe, i) => (
+              <RecipeCard key={i} recipe={recipe} />
+            ))}
         </CardWrapper>
       </Container>
       {loading && <LoadingSpinner />}

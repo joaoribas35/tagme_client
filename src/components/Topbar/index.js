@@ -3,12 +3,16 @@ import { GiCook } from "react-icons/gi";
 import { FaUserCircle, FaFileAlt } from "react-icons/fa";
 import { Container, RightSide, Icons } from "./styles";
 
-const Topbar = () => {
+const Topbar = ({ setSearch }) => {
   return (
     <Container>
       <img src={logo} alt="coco bambu" />;
       <RightSide>
-        <input type="search" placeholder="Buscar receita..." />
+        <input
+          type="text"
+          placeholder="Buscar receita..."
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <Icons to="/pedidos">
           <GiCook />
           <p>Pedidos</p>

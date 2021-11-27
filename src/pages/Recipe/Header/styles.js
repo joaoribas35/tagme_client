@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   background: url(${(props) => props.image}) center center/cover no-repeat;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.1);
   height: 589px;
   justify-content: space-between;
   padding: 15px 30px;

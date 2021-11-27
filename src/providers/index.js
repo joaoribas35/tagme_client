@@ -1,10 +1,10 @@
 import { TimerProvider } from "./Timer";
-import { RecipesProvider } from "./Recipes";
+import { AuthProvider } from "./Auth";
 
 const Providers = ({ children }) => {
   return (
     <TimerProvider>
-      <RecipesProvider>{children}</RecipesProvider>
+      <AuthProvider>{children}</AuthProvider>
     </TimerProvider>
   );
 };

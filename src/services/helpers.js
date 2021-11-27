@@ -18,3 +18,10 @@ export const calculateProgress = (counter, totalSteps, setProgress) => {
   string = `${num}%`;
   setProgress(string);
 };
+
+export const searchRecipes = (recipe, search) => {
+  if (search) {
+    return recipe.title.toLowerCase().includes(search.toLowerCase());
+  }
+  return recipe;
+};

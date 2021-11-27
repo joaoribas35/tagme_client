@@ -4,7 +4,7 @@ import Recipes from "../pages/Recipes";
 import Recipe from "../pages/Recipe";
 import Orders from "../pages/Orders";
 
-// import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 
 const Routes = () => {
   return (
