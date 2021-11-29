@@ -4,6 +4,12 @@ import { FaUserCircle, FaFileAlt } from "react-icons/fa";
 import { Container, RightSide, Icons } from "./styles";
 
 const Topbar = ({ setSearch }) => {
+  const handleSearch = (e) => {
+    if (setSearch) {
+      setSearch(e.target.value);
+    }
+  };
+
   return (
     <Container>
       <img src={logo} alt="coco bambu" />;
@@ -11,7 +17,7 @@ const Topbar = ({ setSearch }) => {
         <input
           type="text"
           placeholder="Buscar receita..."
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleSearch}
         />
         <Icons to="/pedidos">
           <GiCook />
