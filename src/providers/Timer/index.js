@@ -21,7 +21,7 @@ export const TimerProvider = ({ children }) => {
   }, [startTimer]);
 
   return (
-    <TimerContext.Provider value={{ time, setStartTimer }}>
+    <TimerContext.Provider value={{ time, setStartTimer, setTime }}>
       {children}
     </TimerContext.Provider>
   );
