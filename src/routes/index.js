@@ -11,9 +11,9 @@ const Routes = () => {
     <>
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route exact path="/receitas" component={Recipes} />
-        <Route exact path="/receitas/:id" component={Recipe} />
-        <Route exact path="/pedidos" component={Orders} />
+        <PrivateRoute exact path="/receitas" component={Recipes} />
+        <PrivateRoute exact path="/receitas/:id" component={Recipe} />
+        <PrivateRoute exact path="/pedidos" component={Orders} />
       </Switch>
     </>
   );

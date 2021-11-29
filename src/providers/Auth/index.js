@@ -1,21 +1,22 @@
 import { createContext, useState, useContext, useEffect } from "react";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  // const checkLocalStorage = () => {
-  //   if (window.localStorage.getItem("auth")) {
-  //     setToken(JSON.parse(window.localStorage.getItem("auth")));
-  //   }
-  // };
+  useEffect(() => {
+    if (window.localStorage.getItem("auth")) {
+      setToken(JSON.parse(window.localStorage.getItem("auth")));
+    }
+    setLoading(false);
+  }, []);
 
-  // useEffect(() => {
-  //   checkLocalStorage();
-  // }, []);
-
-  console.log("provider", token);
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <AuthContext.Provider value={{ token, setToken }}>
