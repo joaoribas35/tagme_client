@@ -15,6 +15,7 @@ const Recipe = () => {
   const [startPrep, setStartPrep] = useState(false);
   const [isAllIngredients, setIsAllIngredients] = useState(false);
   const [isAllSteps, setIsAllSteps] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
   const [progress, setProgress] = useState("0%");
   const { time, setStartTimer } = useTimer();
   const [loading, setLoading] = useState(false);
@@ -41,6 +42,7 @@ const Recipe = () => {
       setStartPrep(true);
       setIsAllIngredients(false);
       setStartTimer(true);
+      setIsDisabled(false);
     }
   };
 
@@ -62,6 +64,7 @@ const Recipe = () => {
             directions={recipe.directions}
             setIsAllSteps={setIsAllSteps}
             setProgress={setProgress}
+            isDisabled={isDisabled}
           />
           <Footer
             progress={progress}

@@ -15,6 +15,8 @@ const Ingredients = ({ ingredients, setIsAllIngredients }) => {
   useEffect(() => {
     if (counter === totalIngredients) {
       setIsAllIngredients(true);
+    } else {
+      setIsAllIngredients(false);
     }
   }, [counter]);
 

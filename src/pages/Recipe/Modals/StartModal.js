@@ -1,7 +1,6 @@
-import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import { Button, ModalButton } from "../../../components/Button";
-import { Content } from "./styles";
+import MyModal from "../../../components/Modal";
 
 const StartModal = () => {
   const [show, setShow] = useState(false);
@@ -9,22 +8,21 @@ const StartModal = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  console.log("show", show);
+
   return (
     <>
       <Button onClick={handleShow}>Iniciar preparação</Button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          <Content>
-            <p>
-              Para iniciar a preparação, certifique-se de que você tem todos os
-              ingredientes selecionados!
-            </p>
-            <ModalButton onClick={handleClose}>Entendi</ModalButton>
-          </Content>
-        </Modal.Body>
-      </Modal>
+      {show && (
+        <MyModal handleClose={handleClose}>
+          <p>
+            Para iniciar a preparação, certifique-se de que você tem todos os
+            ingredientes selecionados!
+          </p>
+          <ModalButton onClick={handleClose}>Entendi</ModalButton>
+        </MyModal>
+      )}
     </>
   );
 };

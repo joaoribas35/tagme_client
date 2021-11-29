@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Checked, Unchecked } from "./styles";
 
-const Checkbox = ({ counter, setCounter }) => {
+const Checkbox = ({ counter, setCounter, isDisabled }) => {
   const [check, setCheck] = useState(false);
 
   const handleClick = () => {
@@ -17,9 +17,9 @@ const Checkbox = ({ counter, setCounter }) => {
   return (
     <>
       {check ? (
-        <Checked onClick={handleClick} />
+        <Checked onClick={handleClick} disabled={false} />
       ) : (
-        <Unchecked onClick={handleClick} />
+        <Unchecked onClick={handleClick} disabled={isDisabled} />
       )}
     </>
   );

@@ -4,7 +4,7 @@ import Checkbox from "../../../components/Checkbox";
 import { Container, Direction } from "./styles";
 import { calculateProgress } from "../../../services/helpers";
 
-const Directions = ({ directions, setIsAllSteps, setProgress }) => {
+const Directions = ({ directions, setIsAllSteps, setProgress, isDisabled }) => {
   const totalSteps = directions.length;
   const [counter, setCounter] = useState(0);
 
@@ -22,7 +22,11 @@ const Directions = ({ directions, setIsAllSteps, setProgress }) => {
 
         {directions.map((step, i) => (
           <Direction key={i}>
-            <Checkbox setCounter={setCounter} counter={counter} />
+            <Checkbox
+              setCounter={setCounter}
+              counter={counter}
+              isDisabled={isDisabled}
+            />
             <div>
               <h1>Passo {i + 1}</h1>
               <p>{step}</p>

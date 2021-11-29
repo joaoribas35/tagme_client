@@ -9,6 +9,10 @@ export const Checked = styled.button`
   background-color: var(--color-bg-green);
   background-image: url(${check_icon});
   cursor: pointer;
+
+  &:disabled {
+    background: lightgray;
+  }
 `;
 
 export const Unchecked = styled(Checked)`
