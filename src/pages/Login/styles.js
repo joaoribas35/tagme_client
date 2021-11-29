@@ -17,10 +17,39 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
+  display: flex;
+  align-items: center;
   background: #fff;
   width: 345px;
   height: 145px;
   border-radius: 5px;
+
+  p {
+    font-style: italic;
+    font-size: 1rem;
+    width: 60%;
+    margin: 0 20px;
+  }
+`;
+
+export const NewOrders = styled.div`
+  width: 40%;
+  color: var(--color-bg-primary);
+  text-align: center;
+  border-right: 1px solid lightgray;
+  margin: 10px;
+
+  h1 {
+    font-size: 5rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
 `;
 
 export const Logo = styled.img`

@@ -6,17 +6,19 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 import { getRecipes } from "../../services/server";
 import { searchRecipes } from "../../services/helpers";
 import { CardWrapper, Container, Title } from "./styles";
+import { useAuth } from "../../providers/Auth";
 
 const Recipes = () => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [recipes, setRecipes] = useState([]);
+  const { token } = useAuth();
 
   const listRecipes = async () => {
     setLoading(true);
 
     try {
-      const response = await getRecipes();
+      const response = await getRecipes(token);
       setRecipes(response.data);
       setLoading(false);
     } catch (error) {

@@ -5,7 +5,14 @@ import { useHistory } from "react-router";
 import { loginUser } from "../../services/server";
 import { useAuth } from "../../providers/Auth";
 import { toast } from "react-toastify";
-import { Container, FormWrapper, Header, Logo, Form } from "./styles";
+import {
+  Container,
+  FormWrapper,
+  Header,
+  Logo,
+  Form,
+  NewOrders,
+} from "./styles";
 
 const Login = () => {
   const history = useHistory();
@@ -39,7 +46,16 @@ const Login = () => {
   return (
     <>
       <Container>
-        <Header />
+        <Header>
+          <NewOrders>
+            <h1>1</h1>
+            <p>Novo pedido</p>
+          </NewOrders>
+          <p>
+            Por favor, faça o login para ver o pedido e ter acesso a receita com
+            o modo de preparo.
+          </p>
+        </Header>
         <Logo src={logo_coco_bambu} />
         <FormWrapper>
           <Form onSubmit={handleForm}>

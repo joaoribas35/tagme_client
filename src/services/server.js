@@ -10,5 +10,16 @@ export const loginUser = async (data) => {
   return api.post("/login", data);
 };
 
-export const getRecipes = async () => await api.get(`/recipes`);
-export const getRecipe = async (id) => await api.get(`/recipes/${id}`);
+export const getRecipes = async (token) =>
+  await api.get(`/recipes`, {
+    headers: {
+      Authorization: `Bearer ${token.token}`,
+    },
+  });
+
+export const getRecipe = async (id, token) =>
+  await api.get(`/recipes/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token.token}`,
+    },
+  });

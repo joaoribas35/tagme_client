@@ -8,8 +8,6 @@ const StartModal = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log("show", show);
-
   return (
     <>
       <Button onClick={handleShow}>Iniciar preparação</Button>

@@ -8,6 +8,7 @@ import Header from "./Header";
 import { useTimer } from "../../providers/Timer";
 import { getRecipe } from "../../services/server";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import { useAuth } from "../../providers/Auth";
 
 const Recipe = () => {
   const { id } = useParams();
@@ -19,12 +20,14 @@ const Recipe = () => {
   const [progress, setProgress] = useState("0%");
   const { time, setStartTimer } = useTimer();
   const [loading, setLoading] = useState(false);
+  const { token } = useAuth();
 
   const listRecipe = async () => {
     setLoading(true);
 
     try {
-      const response = await getRecipe(id);
+      const response = await getRecipe(id, token);
+
       setRecipe(response.data);
       setLoading(false);
     } catch (error) {
