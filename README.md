@@ -2,6 +2,8 @@
 
 Esta aplicação tem o objetivo de listar as receitas disponíveis no cardápio do Restaurante Coco Bambu e detalhar cada uma delas fornecendo os ingredientes e instruções para a confecção do prato, funcionando como um guia para a cozinha de cada filial. A aplicação é responsiva para funcionar em tablets (a partir de 768px de largura) e desktops.
 
+![Login](https://drive.google.com/file/d/1H1T2Y_2KCGge-ssFr1ymudQXq0fsAcv4/view?usp=sharing)
+
 # Tabela de Conteúdos
 
 - [Instalação](#instalação)
