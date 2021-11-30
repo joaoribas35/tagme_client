@@ -2,7 +2,7 @@
 
 Esta aplicação tem o objetivo de listar as receitas disponíveis no cardápio do Restaurante Coco Bambu e detalhar cada uma delas fornecendo os ingredientes e instruções para a confecção do prato, funcionando como um guia para a cozinha de cada filial. A aplicação é responsiva para funcionar em tablets (a partir de 768px de largura) e desktops.
 
-![Login](https://github.com/joaoribas35/tagme_client/blob/master/src/assets/img/prato-arroz-grande.jpg)
+![Login](https://github.com/joaoribas35/tagme_client/blob/master/src/assets/img/readme.jpg?style=centerme)
 
 # Tabela de Conteúdos
 
