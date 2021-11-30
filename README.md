@@ -17,7 +17,7 @@ Esta aplicação tem o objetivo de listar as receitas disponíveis no cardápio 
 
 # Instalação
 
-Este projeto utiliza uma API desenvolvida em Node.js, Express, Mongoose e MongoDB. Para rodar a aplicação, é necessário seguir os passos abaixo para inicializar o backend.
+Este projeto utiliza uma API desenvolvida em Node.js, Express, Mongoose e MongoDB. Para rodar a aplicação, é necessário seguir os passos abaixo para inicializar o backend que se encontra neste [repositório](https://github.com/joaoribas35/tagme_server).
 
 - [Voltar](#tabela-de-conteúdos)
 
