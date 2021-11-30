@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Guia de Receitas - Restaurante Coco Bambu
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta aplicação tem o objetivo de listar as receitas disponíveis no cardápio do Restaurante Coco Bambu e detalhar cada uma delas fornecendo os ingredientes e instruções para a confecção do prato, funcionando como um guia para a cozinha de cada filial. A aplicação é responsiva para funcionar em tablets (a partir de 768px de largura) e desktops.
 
-## Available Scripts
+# Tabela de Conteúdos
 
-In the project directory, you can run:
+- [Instalação](#instalação)
+  - [Backend](#backend)
+  - [Frontend](#frontend)
+- [Como Usar](#como-usar)
+  - [Tela de Login](#tela-de-login)
+  - [Tela de Receitas](#tela-de-receitas)
+  - [Tela de Cada Receita](#tela-de-cada-receita)
+- [Tecnologias](#tecnologias)
 
-### `yarn start`
+# Instalação
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Este projeto utiliza uma API desenvolvida em Node.js, Express, Mongoose e MongoDB. Para rodar a aplicação, é necessário seguir os passos abaixo para inicializar o backend.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Voltar](#tabela-de-conteúdos)
 
-### `yarn test`
+## Backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Faça o download da aplicação, acesse a pasta com os arquivos, instale as dependencias e inicialize o projeto:
 
-### `yarn build`
+```
+git clone https://github.com/joaoribas35/tagme_server
+cd tagme_server
+yarn install
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Voltar](#tabela-de-conteúdos)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Faça o download da aplicação, acesse a pasta com os arquivos, instale as dependencias e inicialize o projeto:
 
-### `yarn eject`
+```
+git clone https://github.com/joaoribas35/tagme_client
+cd tagme_client
+yarn install
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [Voltar](#tabela-de-conteúdos)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Como usar
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+A aplicação possui três telas: uma de login, uma listando todas as receitas e uma detalhando cada receita. As telas de receitas e detalhes de cada receitas são protegidas e necessitam de validação do usuário para ter acesso.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [Voltar](#tabela-de-conteúdos)
 
-## Learn More
+## Tela de Login
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A aplicação irá iniciar na página de login. o usuário irá informar suas credenciais, que serão validadas no backend. Caso as credenciais sejam válidas, o usuário receberá uma mensagem de boas vindas, será redirecionado para página de receitas e terá um token de acesso salvo no _Local Storage_. Para acessar, utilize as seguintes credenciais:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+Nome do usuário: visitante
+Senha: 123456
+```
 
-### Code Splitting
+- [Voltar](#tabela-de-conteúdos)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Tela de Receitas
 
-### Analyzing the Bundle Size
+Nesta página serão listada todas as receitas que estão salvas no banco de dados da API. Cada receita possui um link que direcionará para as instruções de preparo. O usuário poderá filtrar as receitas por nome no campo de busca localizado no menu superior, lado direito. Ainda no menu superior, o usuário poderá Sair da aplicação. Esta ação irá excluir o token de acesso _Local Storage_ e redirecionar o usuário para a Página de Login.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [Voltar](#tabela-de-conteúdos)
 
-### Making a Progressive Web App
+## Tela da Cada Receita
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Esta página trará a descrição do prato, tempo de preparo, ingredientes e modo de preparo. A página inicia com os botões referentes ao modo de preparo desabilitados.
 
-### Advanced Configuration
+- Usuário verifica se possui todos os ingredientes necessários.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  > Caso não possua todos os ingredientes, o usuário não poderá iniciar a preparação. Uma janela modal irá informar que o usuário deve ter todos os ingredientes para iniciar a preparação.
 
-### Deployment
+- Usuário inicia a preparação. Esta ação irá habilitar a marcação dos passos no modo de preparo e também irá disparar um cronometro que indicará o tempo de preparo. O menu inferior irá indicar o status de conclusão do prato e o tempo decorrido.
+  > Caso não possua todos os passos concluídos, o usuário não poderá finalizar o prato.
+- Usuário finaliza a preparação. Uma janela modal irá informar o tempo total de preparação do prato e, assim que fechada, redirecionará para a página de receitas.
+- [Voltar](#tabela-de-conteúdos)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Tecnologias
 
-### `yarn build` fails to minify
+Principais ferramentas utilizadas na construção do projeto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React](https://pt-br.reactjs.org/)
+- [Context API](https://pt-br.reactjs.org/docs/context.html)
+- [React Router](https://reactrouter.com/)
+- [Styled Components](https://styled-components.com/)
+
+[Voltar](#tabela-de-conteúdos)
