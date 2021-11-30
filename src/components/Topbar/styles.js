@@ -19,6 +19,9 @@ export const RightSide = styled.div`
   input {
     width: 320px;
     margin-right: 15px;
+    padding-left: 10px;
+    font-style: italic;
+    font-size: 1.2rem;
   }
 `;
 

@@ -18,7 +18,6 @@ const Topbar = ({ setSearch }) => {
           placeholder="Buscar receita..."
           onChange={handleSearch}
         />
-
         <Icons to="/receitas">
           <FaFileAlt />
           <p>Receitas</p>

@@ -12,6 +12,7 @@ export const Container = styled.div`
 
 export const Description = styled.div`
   display: flex;
+  width: 90%;
 
   img {
     width: 160px;
@@ -22,7 +23,7 @@ export const Description = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    max-width: 450px;
+
     justify-content: center;
 
     h1 {
@@ -52,5 +53,9 @@ export const ShowRecipe = styled(Link)`
 
   &:hover {
     color: #fff;
+  }
+
+  a {
+    width: 100%;
   }
 `;

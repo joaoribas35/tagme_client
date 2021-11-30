@@ -49,6 +49,7 @@ export const NewOrders = styled.div`
     width: 100%;
     text-align: center;
     margin: 0;
+    font-style: normal;
   }
 `;
 
@@ -72,6 +73,8 @@ export const Form = styled.form`
     width: 235px;
     height: 45px;
     margin-bottom: 18px;
+    padding-left: 15px;
+    font-style: italic;
   }
 
   button {

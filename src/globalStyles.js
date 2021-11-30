@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', Open-Sans,  Sans-Serif;
+    font-family: Arial, Helvetica, sans-serif, Open-Sans,  Sans-Serif;
     }
 
   p, h1 {
